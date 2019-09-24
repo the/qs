@@ -34,7 +34,7 @@ func Highlight(in io.Reader, out io.Writer, paramNames []string) {
 	scanner := bufio.NewScanner(in)
 
 	for scanner.Scan() {
-		u, err := url.Parse(scanner.Text())
+		u, err := url.Parse(clean(scanner.Text()))
 		if err != nil {
 			fmt.Fprintln(os.Stderr, err)
 			continue
